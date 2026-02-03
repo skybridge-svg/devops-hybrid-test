@@ -1,0 +1,17 @@
+- name: Clone app repo
+  git:
+    repo: https://github.com/USERNAME/devops-hybrid-test.git
+    dest: /var/www/app
+    force: yes
+
+- name: Install dependencies
+  npm:
+    path: /var/www/app
+
+- name: Start app with PM2
+  command: pm2 start app.js --name hybrid-app
+  args:
+    chdir: /var/www/app
+
+- name: Save PM2 process
+  command: pm2 save

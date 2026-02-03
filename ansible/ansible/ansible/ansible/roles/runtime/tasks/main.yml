@@ -1,0 +1,16 @@
+- name: Install Node.js & npm
+  apt:
+    name:
+      - nodejs
+      - npm
+    update_cache: yes
+    state: present
+
+- name: Install PM2
+  npm:
+    name: pm2
+    global: yes
+
+- name: Enable PM2 startup
+  command: pm2 startup systemd
+  changed_when: false
