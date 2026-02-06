@@ -12,4 +12,7 @@
 4. Deploy to Kubernetes
 
 ## How to Run
-...
+```bash
+npm install
+npm start
+
